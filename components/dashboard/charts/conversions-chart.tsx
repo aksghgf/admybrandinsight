@@ -28,7 +28,7 @@ export function ConversionsChart({ data, loading }: ConversionsChartProps) {
           <CardDescription>Conversion distribution by marketing channel</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="h-[300px] w-full bg-muted rounded animate-pulse"></div>
+          <div className="h-[250px] sm:h-[300px] w-full bg-muted rounded animate-pulse"></div>
         </CardContent>
       </Card>
     );
@@ -36,19 +36,19 @@ export function ConversionsChart({ data, loading }: ConversionsChartProps) {
 
   return (
     <Card className="transition-all duration-300 hover:shadow-lg hover:scale-[1.01] relative">
-      <CardHeader>
-        <CardTitle>Conversions by Channel</CardTitle>
-        <CardDescription>Conversion distribution across marketing channels</CardDescription>
+      <CardHeader className="pb-4">
+        <CardTitle className="text-lg sm:text-xl">Conversions by Channel</CardTitle>
+        <CardDescription className="text-sm">Conversion distribution across marketing channels</CardDescription>
       </CardHeader>
       <CardContent>
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={250} className="sm:h-[300px]">
           <PieChart>
             <Pie
               data={data}
               cx="50%"
               cy="50%"
-              innerRadius={60}
-              outerRadius={100}
+              innerRadius={40}
+              outerRadius={80}
               dataKey="conversions"
               nameKey="name"
               style={{ cursor: 'pointer' }}
@@ -70,11 +70,12 @@ export function ConversionsChart({ data, loading }: ConversionsChartProps) {
                 border: '1px solid hsl(var(--border))',
                 borderRadius: '8px',
                 boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-                zIndex: 1000
+                zIndex: 1000,
+                fontSize: '12px'
               }}
             />
             <Legend 
-              wrapperStyle={{ paddingTop: '20px' }}
+              wrapperStyle={{ paddingTop: '20px', fontSize: '12px' }}
               iconType="circle"
             />
           </PieChart>

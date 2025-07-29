@@ -27,7 +27,7 @@ export function RevenueChart({ data, loading }: RevenueChartProps) {
           <CardDescription>Monthly revenue over time</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="h-[300px] w-full bg-muted rounded animate-pulse"></div>
+          <div className="h-[250px] sm:h-[300px] w-full bg-muted rounded animate-pulse"></div>
         </CardContent>
       </Card>
     );
@@ -35,28 +35,28 @@ export function RevenueChart({ data, loading }: RevenueChartProps) {
 
   return (
     <Card className="group transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 hover:scale-[1.02] bg-gradient-to-br from-background to-muted/10 border-0 shadow-lg overflow-hidden relative">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2 text-xl font-bold">
+      <CardHeader className="pb-4">
+        <CardTitle className="flex items-center gap-2 text-lg sm:text-xl font-bold">
           <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
           Revenue Trend
         </CardTitle>
-        <CardDescription className="text-muted-foreground/80">
+        <CardDescription className="text-muted-foreground/80 text-sm">
           Monthly revenue performance over the year
         </CardDescription>
       </CardHeader>
       <CardContent className="relative">
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={250} className="sm:h-[300px]">
           <LineChart data={data}>
             <CartesianGrid strokeDasharray="3 3" className="opacity-20" stroke="hsl(var(--muted-foreground))" />
             <XAxis 
               dataKey="name" 
               className="text-xs"
-              tick={{ fontSize: 12 }}
+              tick={{ fontSize: 10 }}
               stroke="hsl(var(--muted-foreground))"
             />
             <YAxis 
               className="text-xs"
-              tick={{ fontSize: 12 }}
+              tick={{ fontSize: 10 }}
               tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
               stroke="hsl(var(--muted-foreground))"
             />
@@ -69,7 +69,8 @@ export function RevenueChart({ data, loading }: RevenueChartProps) {
                 borderRadius: '12px',
                 boxShadow: '0 10px 40px rgba(0,0,0,0.1)',
                 backdropFilter: 'blur(10px)',
-                zIndex: 1000
+                zIndex: 1000,
+                fontSize: '12px'
               }}
               cursor={{ stroke: 'hsl(var(--primary))', strokeWidth: 2, strokeDasharray: '5 5' }}
             />
@@ -77,16 +78,16 @@ export function RevenueChart({ data, loading }: RevenueChartProps) {
               type="monotone" 
               dataKey="revenue" 
               stroke="url(#colorRevenue)" 
-              strokeWidth={4}
+              strokeWidth={3}
               dot={{ 
                 fill: '#3B82F6', 
                 strokeWidth: 2, 
-                r: 5, 
+                r: 4, 
                 filter: 'drop-shadow(0 2px 4px rgba(59,130,246,0.3))',
                 cursor: 'pointer'
               }}
               activeDot={{ 
-                r: 8, 
+                r: 6, 
                 fill: '#3B82F6', 
                 stroke: '#fff', 
                 strokeWidth: 3, 

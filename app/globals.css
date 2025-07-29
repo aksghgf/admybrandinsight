@@ -100,6 +100,52 @@
   .recharts-tooltip-wrapper {
     z-index: 1000 !important;
   }
+  
+  /* Mobile-specific improvements */
+  @media (max-width: 640px) {
+    /* Improve touch targets */
+    button, [role="button"], .dashboard-section {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Better text readability on mobile */
+    .text-xs {
+      font-size: 0.75rem;
+      line-height: 1rem;
+    }
+    
+    /* Improve chart readability */
+    .recharts-text {
+      font-size: 10px !important;
+    }
+    
+    /* Better spacing for mobile */
+    .space-y-3 > * + * {
+      margin-top: 0.75rem;
+    }
+    
+    .space-y-4 > * + * {
+      margin-top: 1rem;
+    }
+    
+    /* Improve card shadows on mobile */
+    .shadow-lg {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+  }
+  
+  /* Prevent horizontal scroll on mobile */
+  @media (max-width: 768px) {
+    body {
+      overflow-x: hidden;
+    }
+    
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
 }
 
 /* Custom scrollbar */
@@ -207,4 +253,37 @@
 * {
   transition-property: opacity, transform, filter, box-shadow, border-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile sidebar improvements */
+@media (max-width: 1024px) {
+  .sidebar-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .sidebar-mobile.open {
+    transform: translateX(0);
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .dashboard-section:hover {
+    transform: none;
+  }
+  
+  .dashboard-section:active {
+    transform: scale(0.98);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
 }

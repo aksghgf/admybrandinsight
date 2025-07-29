@@ -27,7 +27,7 @@ export function UsersChart({ data, loading }: UsersChartProps) {
           <CardDescription>User distribution across devices</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="h-[300px] w-full bg-muted rounded animate-pulse"></div>
+          <div className="h-[250px] sm:h-[300px] w-full bg-muted rounded animate-pulse"></div>
         </CardContent>
       </Card>
     );
@@ -35,22 +35,22 @@ export function UsersChart({ data, loading }: UsersChartProps) {
 
   return (
     <Card className="transition-all duration-300 hover:shadow-lg hover:scale-[1.01] relative">
-      <CardHeader>
-        <CardTitle>Users by Device</CardTitle>
-        <CardDescription>User distribution across different devices</CardDescription>
+      <CardHeader className="pb-4">
+        <CardTitle className="text-lg sm:text-xl">Users by Device</CardTitle>
+        <CardDescription className="text-sm">User distribution across different devices</CardDescription>
       </CardHeader>
       <CardContent>
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={250} className="sm:h-[300px]">
           <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" className="opacity-30" />
             <XAxis 
               dataKey="name" 
-              className="text-sm"
-              tick={{ fontSize: 12 }}
+              className="text-xs"
+              tick={{ fontSize: 10 }}
             />
             <YAxis 
-              className="text-sm"
-              tick={{ fontSize: 12 }}
+              className="text-xs"
+              tick={{ fontSize: 10 }}
               tickFormatter={(value) => `${(value / 1000).toFixed(1)}k`}
             />
             <Tooltip 
@@ -61,7 +61,8 @@ export function UsersChart({ data, loading }: UsersChartProps) {
                 border: '1px solid hsl(var(--border))',
                 borderRadius: '8px',
                 boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-                zIndex: 1000
+                zIndex: 1000,
+                fontSize: '12px'
               }}
               cursor={{ fill: 'hsl(var(--accent))', opacity: 0.3 }}
             />
