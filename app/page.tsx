@@ -8,6 +8,8 @@ import { RevenueChart } from '@/components/dashboard/charts/revenue-chart';
 import { UsersChart } from '@/components/dashboard/charts/users-chart';
 import { ConversionsChart } from '@/components/dashboard/charts/conversions-chart';
 import { DataTable } from '@/components/dashboard/data-table';
+import PricingCalculator from '@/components/pricing-calculator';
+import DemoVideoSection from '@/components/demo-video-section';
 import { 
   metricCards as initialMetricCards,
   revenueData,
@@ -114,6 +116,16 @@ export default function Dashboard() {
             style={{ cursor: 'pointer' }}
           >
             <OverviewCards cards={metricCards} loading={loading} />
+          </div>
+
+          {/* Pricing Calculator & Demo Video Section - Horizontal Layout */}
+          <div className="flex flex-col lg:flex-row gap-6 items-stretch animate-fade-in-up">
+            <div className="flex-1">
+              <PricingCalculator />
+            </div>
+            <div className="flex-1">
+              <DemoVideoSection />
+            </div>
           </div>
 
           {/* Charts Grid */}

@@ -71,7 +71,8 @@ export function ConversionsChart({ data, loading }: ConversionsChartProps) {
                 borderRadius: '8px',
                 boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
                 zIndex: 1000,
-                fontSize: '12px'
+                fontSize: '12px',
+                color: 'hsl(var(--foreground))'
               }}
             />
             <Legend 
